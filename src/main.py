@@ -106,7 +106,7 @@ def process_pdfs(pdf_directory, persist_directory, output_widget):
         else:
             output_widget.insert(tk.END, "No valid text extracted. Skipping storage.\n")
 
-    client.persist()
+    # client.persist() # No longer needed, persistence is automatic
     output_widget.insert(tk.END, "Chroma DB persisted to disk.\n")
 
 def run_search(query, pdf_directory, persist_directory, output_widget):

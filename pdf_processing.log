@@ -256,3 +256,7 @@
 2025-11-18 18:47:58,965:INFO:Loaded 59 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
 2025-11-18 18:47:58,966:INFO:Loaded 426 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
 2025-11-18 18:48:17,525:INFO:Opened PDF: /Users/ammar/Downloads/Cormen Introduction to Algorithms.pdf
+2025-11-18 18:57:46,507:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 18:57:46,780:INFO:Loaded 59 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 18:57:46,780:INFO:Loaded 426 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 18:57:57,364:INFO:Opened PDF: /Users/ammar/Downloads/Cormen Introduction to Algorithms.pdf
