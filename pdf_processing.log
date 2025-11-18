@@ -64,3 +64,195 @@
 2025-01-01 16:13:57,296:INFO:Opened PDF: /Users/ammar/Downloads/RLbook2020.pdf
 2025-01-01 16:13:57,406:INFO:Opened PDF: /Users/ammar/Downloads/make-04-00009-v2.pdf
 2025-01-01 16:13:57,849:INFO:Opened PDF: /Users/ammar/Downloads/2412.05265v1.pdf
+2025-11-18 18:36:37,527:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 18:36:38,536:INFO:Loaded 55 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 18:36:38,536:INFO:Loaded 345 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 18:37:56,505:INFO:Loaded 55 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 18:37:56,506:INFO:Loaded 345 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 18:40:30,087:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 18:40:30,179:INFO:Loaded 55 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 18:40:30,180:INFO:Loaded 345 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 18:41:55,954:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 18:41:56,040:INFO:Loaded 55 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 18:41:56,041:INFO:Loaded 345 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 18:41:57,674:INFO:Processed Nonimmigrant Visa - Confirmation Page.pdf: 1 chunks created.
+2025-11-18 18:41:57,675:WARNING:Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-18 18:41:57,675:WARNING:Ignoring wrong pointing object 8 0 (offset 0)
+2025-11-18 18:41:57,675:WARNING:Ignoring wrong pointing object 10 0 (offset 0)
+2025-11-18 18:41:57,675:WARNING:Ignoring wrong pointing object 12 0 (offset 0)
+2025-11-18 18:41:57,675:WARNING:Ignoring wrong pointing object 14 0 (offset 0)
+2025-11-18 18:41:57,675:WARNING:Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-18 18:41:57,675:WARNING:Ignoring wrong pointing object 19 0 (offset 0)
+2025-11-18 18:41:57,675:WARNING:Ignoring wrong pointing object 21 0 (offset 0)
+2025-11-18 18:41:57,675:WARNING:Ignoring wrong pointing object 23 0 (offset 0)
+2025-11-18 18:41:57,675:WARNING:Ignoring wrong pointing object 28 0 (offset 0)
+2025-11-18 18:41:57,675:WARNING:Ignoring wrong pointing object 30 0 (offset 0)
+2025-11-18 18:41:57,707:INFO:Processed cs5800_hw3-1.pdf: 1 chunks created.
+2025-11-18 18:41:57,752:INFO:Processed Account_stmt_XX9806_07072025.pdf: 1 chunks created.
+2025-11-18 18:41:57,753:WARNING:No text found in Adobe Scan 9 Mar 2024.pdf. Skipping.
+2025-11-18 18:41:57,755:WARNING:Ignoring wrong pointing object 8 0 (offset 0)
+2025-11-18 18:41:57,755:WARNING:Ignoring wrong pointing object 10 0 (offset 0)
+2025-11-18 18:41:57,755:WARNING:Ignoring wrong pointing object 13 0 (offset 0)
+2025-11-18 18:41:57,755:WARNING:Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-18 18:41:57,775:INFO:Processed I-94.pdf: 1 chunks created.
+2025-11-18 18:41:57,819:INFO:Processed maths_overleaf_approach.pdf: 1 chunks created.
+2025-11-18 18:41:57,850:INFO:Processed affidavit to verify massachusetts residency.pdf: 1 chunks created.
+2025-11-18 18:41:58,235:INFO:Processed HealthReport.pdf: 1 chunks created.
+2025-11-18 18:41:58,241:INFO:Processed 1513386512799-13185820273-ticket.pdf: 1 chunks created.
+2025-11-18 18:41:58,321:INFO:Processed Passport Back 2.pdf: 1 chunks created.
+2025-11-18 18:41:58,345:INFO:Processed Electronically_Signed_I-20_unlocked.pdf: 1 chunks created.
+2025-11-18 18:41:58,566:INFO:Processed 002997737_Northeastern-University-Student-Health-Plan_BCE_Final_SOB.pdf: 2 chunks created.
+2025-11-18 18:41:58,570:INFO:Processed Adhaar.pdf: 1 chunks created.
+2025-11-18 18:42:00,255:INFO:Processed Reinforcement_Learning_Driven_Integrated_Detection_and_Mitigation_of_UAV_GPS_Spoofing_Attacks.pdf: 6 chunks created.
+2025-11-18 18:42:42,587:INFO:Processed Cormen Introduction to Algorithms.pdf: 130 chunks created.
+2025-11-18 18:42:43,315:INFO:Processed Packing_List-1.pdf: 3 chunks created.
+2025-11-18 18:42:43,325:INFO:Processed Membership | UNIQLO US.pdf: 1 chunks created.
+2025-11-18 18:42:43,482:INFO:Processed Passport-mom.pdf: 1 chunks created.
+2025-11-18 18:42:44,045:INFO:Processed 2506.24119v2.pdf: 5 chunks created.
+2025-11-18 18:42:44,280:INFO:Processed tufts medical plan.pdf: 2 chunks created.
+2025-11-18 18:42:44,282:WARNING:Ignoring wrong pointing object 41 0 (offset 0)
+2025-11-18 18:42:44,282:WARNING:Ignoring wrong pointing object 42 0 (offset 0)
+2025-11-18 18:42:44,299:INFO:Processed Hough_line_corner_detector.pdf: 1 chunks created.
+2025-11-18 18:42:44,471:INFO:Processed Registration Frequently Asked Questions (2).pdf: 1 chunks created.
+2025-11-18 18:42:44,473:WARNING:Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-18 18:42:44,473:WARNING:Ignoring wrong pointing object 8 0 (offset 0)
+2025-11-18 18:42:44,473:WARNING:Ignoring wrong pointing object 10 0 (offset 0)
+2025-11-18 18:42:44,473:WARNING:Ignoring wrong pointing object 12 0 (offset 0)
+2025-11-18 18:42:44,473:WARNING:Ignoring wrong pointing object 14 0 (offset 0)
+2025-11-18 18:42:44,473:WARNING:Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-18 18:42:44,473:WARNING:Ignoring wrong pointing object 19 0 (offset 0)
+2025-11-18 18:42:44,473:WARNING:Ignoring wrong pointing object 21 0 (offset 0)
+2025-11-18 18:42:44,474:WARNING:Ignoring wrong pointing object 23 0 (offset 0)
+2025-11-18 18:42:44,474:WARNING:Ignoring wrong pointing object 27 0 (offset 0)
+2025-11-18 18:42:44,474:WARNING:Ignoring wrong pointing object 31 0 (offset 0)
+2025-11-18 18:42:44,496:INFO:Processed cs5800_hw4.pdf: 1 chunks created.
+2025-11-18 18:42:44,498:INFO:Processed HuskyCard 2.pdf: 1 chunks created.
+2025-11-18 18:42:44,573:INFO:Processed Visa.pdf: 1 chunks created.
+2025-11-18 18:42:44,632:INFO:Processed MohammadAmmar_HW1.pdf: 1 chunks created.
+2025-11-18 18:42:44,633:WARNING:Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-18 18:42:44,633:WARNING:Ignoring wrong pointing object 8 0 (offset 0)
+2025-11-18 18:42:44,633:WARNING:Ignoring wrong pointing object 10 0 (offset 0)
+2025-11-18 18:42:44,634:WARNING:Ignoring wrong pointing object 12 0 (offset 0)
+2025-11-18 18:42:44,634:WARNING:Ignoring wrong pointing object 14 0 (offset 0)
+2025-11-18 18:42:44,634:WARNING:Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-18 18:42:44,634:WARNING:Ignoring wrong pointing object 19 0 (offset 0)
+2025-11-18 18:42:44,634:WARNING:Ignoring wrong pointing object 21 0 (offset 0)
+2025-11-18 18:42:44,634:WARNING:Ignoring wrong pointing object 23 0 (offset 0)
+2025-11-18 18:42:44,634:WARNING:Ignoring wrong pointing object 28 0 (offset 0)
+2025-11-18 18:42:44,675:INFO:Processed cs5800_hw5.pdf: 1 chunks created.
+2025-11-18 18:42:44,677:WARNING:No text found in healthcard.pdf. Skipping.
+2025-11-18 18:42:44,731:INFO:Processed MoA Pre Incubation Agreement AMUIF (03-04-2025).pdf: 1 chunks created.
+2025-11-18 18:42:45,235:INFO:Processed Lease.pdf: 5 chunks created.
+2025-11-18 18:42:46,473:INFO:Processed April-OGS-Pre-Arrival-Handbook.pdf (2).pdf: 2 chunks created.
+2025-11-18 18:42:46,563:INFO:Processed MMR.pdf: 1 chunks created.
+2025-11-18 18:42:46,574:INFO:Processed 20250717_1206443829687.pdf: 1 chunks created.
+2025-11-18 18:42:47,956:INFO:Processed Reinforcement-Learning-Driven_Integrated_Detection_and_Mitigation_of_UAV_GPS_Spoofing_Attacks.pdf: 5 chunks created.
+2025-11-18 18:42:47,982:INFO:Processed No Objection Certificate (NOC).pdf: 1 chunks created.
+2025-11-18 18:42:47,984:WARNING:Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-18 18:42:47,984:WARNING:Ignoring wrong pointing object 8 0 (offset 0)
+2025-11-18 18:42:47,984:WARNING:Ignoring wrong pointing object 10 0 (offset 0)
+2025-11-18 18:42:47,984:WARNING:Ignoring wrong pointing object 12 0 (offset 0)
+2025-11-18 18:42:47,984:WARNING:Ignoring wrong pointing object 14 0 (offset 0)
+2025-11-18 18:42:47,984:WARNING:Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-18 18:42:47,984:WARNING:Ignoring wrong pointing object 19 0 (offset 0)
+2025-11-18 18:42:47,984:WARNING:Ignoring wrong pointing object 21 0 (offset 0)
+2025-11-18 18:42:47,984:WARNING:Ignoring wrong pointing object 23 0 (offset 0)
+2025-11-18 18:42:47,984:WARNING:Ignoring wrong pointing object 25 0 (offset 0)
+2025-11-18 18:42:47,984:WARNING:Ignoring wrong pointing object 29 0 (offset 0)
+2025-11-18 18:42:48,007:INFO:Processed cs5800_hw2.pdf: 1 chunks created.
+2025-11-18 18:42:48,016:INFO:Processed Nonimmigrant Visa - Print Application ID.pdf: 1 chunks created.
+2025-11-18 18:42:51,643:INFO:Processed Python 3 Object-Oriented Programming Second edition Dusty Phillips.pdf: 44 chunks created.
+2025-11-18 18:42:51,723:INFO:Processed CoverLetter.pdf: 1 chunks created.
+2025-11-18 18:42:53,024:INFO:Processed DRM Q&A.pdf: 6 chunks created.
+2025-11-18 18:42:53,026:INFO:Processed HuskyCard.pdf: 1 chunks created.
+2025-11-18 18:42:53,390:INFO:Processed JRSS88.pdf: 8 chunks created.
+2025-11-18 18:42:53,392:ERROR:Error processing Electronically_Signed_I-20.pdf: cryptography>=3.1 is required for AES algorithm. Skipping.
+2025-11-18 18:42:53,421:INFO:Processed NTR328560615_auth_letter.pdf: 1 chunks created.
+2025-11-18 18:42:53,698:INFO:Processed Major Project Report Final.pdf: 2 chunks created.
+2025-11-18 18:42:53,967:INFO:Processed 52_From_Rules_to_Pixels_A_Deco.pdf: 2 chunks created.
+2025-11-18 18:42:54,044:INFO:Processed papa-passport.pdf: 1 chunks created.
+2025-11-18 18:43:26,874:INFO:Processed Artificial Intelligence - A Modern Approach (3rd Edition).pdf: 178 chunks created.
+2025-11-18 18:43:27,002:INFO:Processed Your Electronic Receipt.pdf: 1 chunks created.
+2025-11-18 18:43:27,008:INFO:Processed Transfer_Details.pdf: 1 chunks created.
+2025-11-18 18:43:27,084:INFO:Processed EmiratesTicket1.pdf: 1 chunks created.
+2025-11-18 18:43:27,646:INFO:Processed AI for Productivity Workshop_ A Comprehensive Guid.pdf: 2 chunks created.
+2025-11-18 18:43:28,271:INFO:Processed Correlation & Regression 2.pdf: 2 chunks created.
+2025-11-18 18:43:28,400:INFO:Processed MS-ARIN_ Artificial Intelligence, MS (Boston) Curriculum.pdf: 1 chunks created.
+2025-11-18 18:43:28,402:WARNING:Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-18 18:43:28,402:WARNING:Ignoring wrong pointing object 8 0 (offset 0)
+2025-11-18 18:43:28,402:WARNING:Ignoring wrong pointing object 10 0 (offset 0)
+2025-11-18 18:43:28,402:WARNING:Ignoring wrong pointing object 12 0 (offset 0)
+2025-11-18 18:43:28,402:WARNING:Ignoring wrong pointing object 14 0 (offset 0)
+2025-11-18 18:43:28,402:WARNING:Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-18 18:43:28,402:WARNING:Ignoring wrong pointing object 18 0 (offset 0)
+2025-11-18 18:43:28,402:WARNING:Ignoring wrong pointing object 20 0 (offset 0)
+2025-11-18 18:43:28,403:WARNING:Ignoring wrong pointing object 22 0 (offset 0)
+2025-11-18 18:43:28,403:WARNING:Ignoring wrong pointing object 28 0 (offset 0)
+2025-11-18 18:43:28,403:WARNING:Ignoring wrong pointing object 31 0 (offset 0)
+2025-11-18 18:43:28,432:INFO:Processed CS5100_Assignment_4.pdf: 1 chunks created.
+2025-11-18 18:43:28,595:INFO:Processed CV_July_2025.pdf: 1 chunks created.
+2025-11-18 18:43:28,657:INFO:Processed SOP_UConn.pdf: 1 chunks created.
+2025-11-18 18:43:28,668:INFO:Processed SentryMD-2.pdf: 1 chunks created.
+2025-11-18 18:43:28,749:INFO:Processed Passport Back.pdf: 1 chunks created.
+2025-11-18 18:43:28,839:INFO:Processed NU Health Report 25-26n Final.pdf: 1 chunks created.
+2025-11-18 18:43:28,841:WARNING:Ignoring wrong pointing object 7 0 (offset 0)
+2025-11-18 18:43:28,841:WARNING:Ignoring wrong pointing object 10 0 (offset 0)
+2025-11-18 18:43:28,841:WARNING:Ignoring wrong pointing object 12 0 (offset 0)
+2025-11-18 18:43:28,841:WARNING:Ignoring wrong pointing object 14 0 (offset 0)
+2025-11-18 18:43:28,841:WARNING:Ignoring wrong pointing object 17 0 (offset 0)
+2025-11-18 18:43:28,841:WARNING:Ignoring wrong pointing object 19 0 (offset 0)
+2025-11-18 18:43:29,269:INFO:Processed 7_Backprop_Export.pdf: 1 chunks created.
+2025-11-18 18:43:29,428:INFO:Processed Degree-Certificate.pdf: 1 chunks created.
+2025-11-18 18:43:29,441:INFO:Processed SentryMD.pdf: 1 chunks created.
+2025-11-18 18:43:29,515:INFO:Processed 84mtpleasant.pdf: 1 chunks created.
+2025-11-18 18:43:29,562:INFO:Processed Mohammad_Ammar_HW3.pdf: 1 chunks created.
+2025-11-18 18:43:29,621:INFO:Processed Mohammad_Ammar_HW2.pdf: 1 chunks created.
+2025-11-18 18:43:35,061:INFO:Processed tufts medical plan - complete handbook.pdf: 25 chunks created.
+2025-11-18 18:43:35,118:INFO:Processed Planning-Document-1-2.pdf: 1 chunks created.
+2025-11-18 18:43:35,195:INFO:Processed papa-passportback.pdf: 1 chunks created.
+2025-11-18 18:43:35,200:INFO:Processed I901_payment_confirmation_04162025.PDF: 1 chunks created.
+2025-11-18 18:43:35,285:INFO:Processed NTR328560615_receipt.pdf: 1 chunks created.
+2025-11-18 18:43:35,289:WARNING:Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-18 18:43:35,289:WARNING:Ignoring wrong pointing object 8 0 (offset 0)
+2025-11-18 18:43:35,289:WARNING:Ignoring wrong pointing object 10 0 (offset 0)
+2025-11-18 18:43:35,289:WARNING:Ignoring wrong pointing object 12 0 (offset 0)
+2025-11-18 18:43:35,289:WARNING:Ignoring wrong pointing object 14 0 (offset 0)
+2025-11-18 18:43:35,289:WARNING:Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-18 18:43:35,289:WARNING:Ignoring wrong pointing object 18 0 (offset 0)
+2025-11-18 18:43:35,289:WARNING:Ignoring wrong pointing object 20 0 (offset 0)
+2025-11-18 18:43:35,289:WARNING:Ignoring wrong pointing object 23 0 (offset 0)
+2025-11-18 18:43:35,289:WARNING:Ignoring wrong pointing object 25 0 (offset 0)
+2025-11-18 18:43:35,289:WARNING:Ignoring wrong pointing object 57 0 (offset 0)
+2025-11-18 18:43:35,290:WARNING:Ignoring wrong pointing object 60 0 (offset 0)
+2025-11-18 18:43:35,290:WARNING:Ignoring wrong pointing object 67 0 (offset 0)
+2025-11-18 18:43:35,361:INFO:Processed CS5100_Assignment_1-2.pdf: 1 chunks created.
+2025-11-18 18:43:35,519:INFO:Processed papa-passport_merged.pdf: 1 chunks created.
+2025-11-18 18:43:35,571:INFO:Processed Mohammad_Ammar_HW1.pdf: 1 chunks created.
+2025-11-18 18:43:35,865:INFO:Processed 125971771.pdf: 2 chunks created.
+2025-11-18 18:43:35,866:WARNING:Ignoring wrong pointing object 8 0 (offset 0)
+2025-11-18 18:43:35,866:WARNING:Ignoring wrong pointing object 10 0 (offset 0)
+2025-11-18 18:43:35,866:WARNING:Ignoring wrong pointing object 13 0 (offset 0)
+2025-11-18 18:43:35,866:WARNING:Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-18 18:43:35,886:INFO:Processed I-94-Latest.pdf: 1 chunks created.
+2025-11-18 18:43:35,917:INFO:Processed NTR204022807_auth_letter.pdf: 1 chunks created.
+2025-11-18 18:43:36,252:INFO:Processed sensors-25-02107.pdf: 4 chunks created.
+2025-11-18 18:43:36,253:WARNING:No text found in signature-mom.pdf. Skipping.
+2025-11-18 18:43:36,293:INFO:Processed Mohammad_Ammar_HW5.pdf: 1 chunks created.
+2025-11-18 18:43:36,328:INFO:Processed Mohammad_Ammar_HW4.pdf: 1 chunks created.
+2025-11-18 18:43:36,396:INFO:Processed CoverLetter ML Eng.pdf: 1 chunks created.
+2025-11-18 18:43:36,459:INFO:Processed Mohammad.Ammar.HW2.pdf: 1 chunks created.
+2025-11-18 18:43:36,522:INFO:Processed Mohammad_Ammar_HW6.pdf: 1 chunks created.
+2025-11-18 18:43:36,524:WARNING:Ignoring wrong pointing object 9 0 (offset 0)
+2025-11-18 18:43:36,584:INFO:Processed ViewBill.pdf: 1 chunks created.
+2025-11-18 18:43:36,585:INFO:Added 4 failed PDFs to /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 18:43:51,116:INFO:Added documents 1 to 496 out of 496.
+2025-11-18 18:43:51,117:INFO:Stored 496 new PDF chunks in Chroma DB.
+2025-11-18 18:43:51,118:INFO:Added 81 processed PDFs to /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 18:45:18,020:INFO:Opened PDF: /Users/ammar/Downloads/Artificial Intelligence - A Modern Approach (3rd Edition).pdf
+2025-11-18 18:45:18,069:INFO:Opened PDF: /Users/ammar/Downloads/Reinforcement_Learning_Driven_Integrated_Detection_and_Mitigation_of_UAV_GPS_Spoofing_Attacks.pdf
+2025-11-18 18:45:18,307:INFO:Opened PDF: /Users/ammar/Downloads/SOP_UConn.pdf
+2025-11-18 18:45:18,428:INFO:Opened PDF: /Users/ammar/Downloads/Reinforcement-Learning-Driven_Integrated_Detection_and_Mitigation_of_UAV_GPS_Spoofing_Attacks.pdf
+2025-11-18 18:47:58,697:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 18:47:58,965:INFO:Loaded 59 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 18:47:58,966:INFO:Loaded 426 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 18:48:17,525:INFO:Opened PDF: /Users/ammar/Downloads/Cormen Introduction to Algorithms.pdf
