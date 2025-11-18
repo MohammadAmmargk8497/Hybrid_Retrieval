@@ -1,0 +1,66 @@
+2024-12-10 15:18:19,283:INFO:Starting PDF processing application...
+2024-12-10 15:18:19,294:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-10 15:18:19,421:INFO:Chroma DB setup complete.
+2024-12-10 15:18:21,102:INFO:Existing documents in Chroma DB: 2301
+2024-12-10 15:18:21,103:INFO:Loaded 55 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2024-12-10 15:18:21,103:INFO:Failed documents in Chroma DB: 55
+2024-12-10 15:18:21,103:INFO:Loaded 345 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2024-12-10 15:18:21,103:INFO:Processed documents in Chroma DB: 345
+2024-12-10 15:18:21,108:INFO:Total PDFs in directory: 400
+2024-12-10 15:18:21,108:INFO:New PDFs to process: 0
+2024-12-10 15:18:21,108:INFO:No new PDFs to process. Skipping text extraction and storage.
+2024-12-10 15:18:21,108:ERROR:Error persisting Chroma DB to disk: 'Client' object has no attribute 'persist'
+2024-12-10 15:19:15,015:INFO:Searching for 'Reinforcement Learning'...
+2024-12-10 15:19:16,769:INFO:Opened PDF: /Users/ammar/Downloads/RLbook2020.pdf
+2024-12-10 15:19:16,863:INFO:Opened PDF: /Users/ammar/Downloads/make-04-00009-v2.pdf
+2024-12-10 15:19:16,966:INFO:Opened PDF: /Users/ammar/Downloads/2412.05265v1.pdf
+2024-12-10 15:19:16,966:INFO:Application finished successfully.
+2024-12-10 15:48:18,645:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-10 15:48:21,718:INFO:Opened PDF: /Users/ammar/Downloads/RLbook2020.pdf
+2024-12-10 15:48:21,815:INFO:Opened PDF: /Users/ammar/Downloads/make-04-00009-v2.pdf
+2024-12-10 15:48:22,053:INFO:Opened PDF: /Users/ammar/Downloads/2412.05265v1.pdf
+2024-12-10 15:50:36,953:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-10 15:50:38,800:INFO:Opened PDF: /Users/ammar/Downloads/RLbook2020.pdf
+2024-12-10 15:50:38,920:INFO:Opened PDF: /Users/ammar/Downloads/make-04-00009-v2.pdf
+2024-12-10 15:50:39,041:INFO:Opened PDF: /Users/ammar/Downloads/2412.05265v1.pdf
+2024-12-10 15:51:20,979:INFO:Opened PDF: /Users/ammar/Downloads/1656389673.pdf
+2024-12-10 15:51:35,017:INFO:Opened PDF: /Users/ammar/Downloads/passportbio.pdf
+2024-12-10 15:51:35,122:INFO:Opened PDF: /Users/ammar/Downloads/1656389673.pdf
+2024-12-10 15:51:50,466:INFO:Opened PDF: /Users/ammar/Downloads/passportbio.pdf
+2024-12-10 15:51:50,605:INFO:Opened PDF: /Users/ammar/Downloads/1656389673.pdf
+2024-12-10 15:55:09,988:INFO:Opened PDF: /Users/ammar/Downloads/RLbook2020.pdf
+2024-12-10 15:55:10,093:INFO:Opened PDF: /Users/ammar/Downloads/make-04-00009-v2.pdf
+2024-12-10 15:55:10,247:INFO:Opened PDF: /Users/ammar/Downloads/2412.05265v1.pdf
+2024-12-10 23:30:33,102:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-10 23:30:35,749:INFO:Opened PDF: /Users/ammar/Downloads/RLbook2020.pdf
+2024-12-10 23:30:35,851:INFO:Opened PDF: /Users/ammar/Downloads/make-04-00009-v2.pdf
+2024-12-10 23:30:35,930:INFO:Opened PDF: /Users/ammar/Downloads/2412.05265v1.pdf
+2024-12-11 13:49:57,464:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2024-12-11 13:50:00,146:INFO:Opened PDF: /Users/ammar/Downloads/Alexander Zai, Brandon Brown - Deep Reinforcement Learning in Action (2020, Manning Publications) - libgen.li.pdf
+2024-12-11 13:50:00,244:INFO:Opened PDF: /Users/ammar/Downloads/3D_Printer_Prj.pdf.pdf
+2024-12-11 13:50:00,597:INFO:Opened PDF: /Users/ammar/Downloads/ebin.pub_deep-learning-for-vision-systems-1nbsped-1617296198-9781617296192.pdf
+2024-12-11 13:50:00,730:INFO:Opened PDF: /Users/ammar/Downloads/Database_System_Concepts_6e_By_Abraham_S.pdf
+2024-12-11 13:50:00,855:INFO:Opened PDF: /Users/ammar/Downloads/receipt_Chapter.pdf.pdf
+2024-12-11 13:50:31,775:INFO:Opened PDF: /Users/ammar/Downloads/ebin.pub_deep-learning-for-vision-systems-1nbsped-1617296198-9781617296192.pdf
+2024-12-11 13:50:31,872:INFO:Opened PDF: /Users/ammar/Downloads/pdfcoffee.com_deep-learning-17-pdf-free.pdf
+2024-12-11 13:50:31,952:INFO:Opened PDF: /Users/ammar/Downloads/978-3-319-62533-1.pdf
+2024-12-11 13:51:29,709:INFO:Opened PDF: /Users/ammar/Downloads/ebin.pub_deep-learning-for-vision-systems-1nbsped-1617296198-9781617296192.pdf
+2024-12-11 13:51:29,803:INFO:Opened PDF: /Users/ammar/Downloads/pdfcoffee.com_deep-learning-17-pdf-free.pdf
+2024-12-11 13:51:29,883:INFO:Opened PDF: /Users/ammar/Downloads/2305.06329v3.pdf
+2024-12-11 13:51:29,964:INFO:Opened PDF: /Users/ammar/Downloads/Pang-Ning Tan - Introduction to Data Mining-Pearson Education Limited (2019).pdf
+2024-12-11 13:52:12,259:INFO:Opened PDF: /Users/ammar/Downloads/1656389673.pdf
+2024-12-11 13:52:12,411:INFO:Opened PDF: /Users/ammar/Downloads/Aqib & Bushra.pdf
+2024-12-11 13:52:43,655:INFO:Opened PDF: /Users/ammar/Downloads/2407.08406v1.pdf
+2024-12-11 13:52:43,758:INFO:Opened PDF: /Users/ammar/Downloads/Elsevier_s_CAS_LaTeX_Single_Column_Template-1.pdf
+2024-12-11 13:52:43,854:INFO:Opened PDF: /Users/ammar/Downloads/Cyber_Springer.pdf
+2024-12-11 13:52:43,960:INFO:Opened PDF: /Users/ammar/Downloads/Elsevier_s_CAS_LaTeX_Single_Column_Template.pdf
+2024-12-11 13:52:44,070:INFO:Opened PDF: /Users/ammar/Downloads/Elsevier_s_CAS_LaTeX_Single_Column_Template-2.pdf
+2024-12-11 13:53:25,314:INFO:Opened PDF: /Users/ammar/Downloads/multi-agent-reinforcement-learning-book.pdf
+2024-12-11 14:15:24,667:INFO:Opened PDF: /Users/ammar/Downloads/WaterInsight.pdf
+2024-12-11 14:15:24,763:INFO:Opened PDF: /Users/ammar/Downloads/1656389673.pdf
+2024-12-11 14:21:03,061:INFO:Opened PDF: /Users/ammar/Downloads/WaterInsight.pdf
+2024-12-11 14:21:03,178:INFO:Opened PDF: /Users/ammar/Downloads/1656389673.pdf
+2025-01-01 16:13:54,659:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-01-01 16:13:57,296:INFO:Opened PDF: /Users/ammar/Downloads/RLbook2020.pdf
+2025-01-01 16:13:57,406:INFO:Opened PDF: /Users/ammar/Downloads/make-04-00009-v2.pdf
+2025-01-01 16:13:57,849:INFO:Opened PDF: /Users/ammar/Downloads/2412.05265v1.pdf
