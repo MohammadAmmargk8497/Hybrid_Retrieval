@@ -36,13 +36,4 @@ def store_new_pdfs_in_chroma(collection, text_data: list):
 
     logging.info(f"Stored {total_chunks} new PDF chunks in Chroma DB.")
 
-def search_in_chroma(collection, query: str, top_k:int=5):
-    """
-    Perform a search in ChromaDB and return top_k results.
-    """
-    results = collection.query(
-        query_texts=[query],
-        n_results=top_k,
-        include=['documents', 'metadatas', 'distances']
-    )
-    return results
+

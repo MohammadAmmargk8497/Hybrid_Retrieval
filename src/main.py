@@ -4,6 +4,9 @@ import tkinter as tk
 from tkinter import filedialog, messagebox, scrolledtext
 import platform
 import subprocess
+import json
+import pickle
+from rank_bm25 import BM25Okapi
 
 from src.config import (
     PDF_DIRECTORY,
@@ -12,6 +15,8 @@ from src.config import (
     PROCESSED_PDFS_PATH,
     LOG_FILE,
     TOP_K,
+    BM25_CORPUS_PATH,
+    BM25_MODEL_PATH,
 )
 from src.pdf_processing import (
     load_failed_pdfs,
@@ -21,7 +26,8 @@ from src.pdf_processing import (
     extract_text_from_pdfs,
     load_pdfs_from_directory,
 )
-from src.vector_store import setup_chroma, store_new_pdfs_in_chroma, search_in_chroma
+from src.vector_store import setup_chroma, store_new_pdfs_in_chroma
+from src.search import hybrid_search
 
 # Setup logging
 logging.basicConfig(
@@ -45,31 +51,29 @@ def open_pdf(file_path:str):
     except Exception as e:
         logging.error(f"Failed to open {file_path}: {e}")
 
-def display_search_results(results: dict, output_widget, directory=None, top_k:int=5, max_chars=200):
+def display_search_results(results: list, output_widget, directory=None, top_k:int=5, max_chars=200):
     output_widget.delete('1.0', tk.END)
-    if 'documents' in results and 'metadatas' in results and 'distances' in results:
-        documents = results['documents'][0]
-        metadatas = results['metadatas'][0]
-        distances = results['distances'][0]
-
-        opened_pdfs = set()
+    
+    opened_pdfs = set()
+    
+    for idx, result in enumerate(results):
+        doc = result['document']
+        meta = result['metadata']
+        score = result['score']
         
-        for idx, (doc, meta, distance) in enumerate(zip(documents, metadatas, distances)):
-            source = meta.get('source', 'Unknown')
-            snippet = doc[:max_chars] + '...' if len(doc) > max_chars else doc
-            output_widget.insert(tk.END, f"Document: {source}, Score: {distance}\nSnippet: {snippet}\n\n")
+        source = meta.get('source', 'Unknown')
+        snippet = doc[:max_chars] + '...' if len(doc) > max_chars else doc
+        output_widget.insert(tk.END, f"Document: {source}, Score: {score}\nSnippet: {snippet}\n\n")
 
-            # Optionally open top_k PDFs automatically:
-            if idx < top_k and directory:
-                if source not in opened_pdfs:
-                    file_path = os.path.join(directory, source)
-                    if os.path.exists(file_path):
-                        open_pdf(file_path)
-                        opened_pdfs.add(source)
-                    else:
-                        output_widget.insert(tk.END, f"File not found: {file_path}\n")
-    else:
-        output_widget.insert(tk.END, "No results found or unexpected result structure.\n")
+        # Optionally open top_k PDFs automatically:
+        if idx < top_k and directory:
+            if source not in opened_pdfs:
+                file_path = os.path.join(directory, source)
+                if os.path.exists(file_path):
+                    open_pdf(file_path)
+                    opened_pdfs.add(source)
+                else:
+                    output_widget.insert(tk.END, f"File not found: {file_path}\n")
 
 def process_pdfs(pdf_directory, persist_directory, output_widget):
     # Setup Chroma
@@ -91,6 +95,8 @@ def process_pdfs(pdf_directory, persist_directory, output_widget):
     new_filenames = [f for f in all_files if f not in processed_pdfs_set and f not in failed_pdfs_set]
 
     output_widget.insert(tk.END, f"Found {len(all_files)} PDFs, {len(new_filenames)} new to process.\n")
+    
+    new_files_processed = False
     if new_filenames:
         text_data, failed_pdfs, success_pdfs = extract_text_from_pdfs(pdf_directory, new_filenames)
         output_widget.insert(tk.END, f"Extracted text from {len(text_data)} PDFs.\n")
@@ -103,16 +109,53 @@ def process_pdfs(pdf_directory, persist_directory, output_widget):
             store_new_pdfs_in_chroma(collection, text_data)
             unique_processed = list(set(success_pdfs))
             save_processed_pdfs(unique_processed, PROCESSED_PDFS_PATH)
+            new_files_processed = True
         else:
             output_widget.insert(tk.END, "No valid text extracted. Skipping storage.\n")
 
-    # client.persist() # No longer needed, persistence is automatic
-    output_widget.insert(tk.END, "Chroma DB persisted to disk.\n")
+    # Create and save BM25 model if it doesn't exist or if new files were processed
+    if new_files_processed or not os.path.exists(BM25_MODEL_PATH):
+        output_widget.insert(tk.END, "Creating and saving BM25 model...\n")
+        logging.info("Creating and saving BM25 model...")
+        corpus_data = collection.get()
+        corpus = corpus_data['documents']
+        if corpus:
+            tokenized_corpus = [doc.split(" ") for doc in corpus]
+            bm25 = BM25Okapi(tokenized_corpus)
+            
+            with open(BM25_MODEL_PATH, 'wb') as f:
+                pickle.dump(bm25, f)
+            
+            with open(BM25_CORPUS_PATH, 'w') as f:
+                json.dump(corpus, f)
+            
+            output_widget.insert(tk.END, "BM25 model created and saved.\n")
+            logging.info("BM25 model created and saved.")
+        else:
+            output_widget.insert(tk.END, "Corpus is empty. Skipping BM25 model creation.\n")
+            logging.info("Corpus is empty. Skipping BM25 model creation.")
+
+    output_widget.insert(tk.END, "PDF processing complete.\n")
 
 def run_search(query, pdf_directory, persist_directory, output_widget):
     client, collection = setup_chroma(persist_directory)
-    results = search_in_chroma(collection, query, top_k=TOP_K)
+    
+    # Load BM25 model
+    try:
+        with open(BM25_MODEL_PATH, 'rb') as f:
+            bm25_model = pickle.load(f)
+    except FileNotFoundError:
+        output_widget.insert(tk.END, "BM25 model not found. Please process PDFs first.\n")
+        return
+        
+    # Get all documents from the collection to form the corpus
+    corpus_data = collection.get()
+    corpus = corpus_data['documents']
+    metadatas = corpus_data['metadatas']
+    
+    results = hybrid_search(collection, bm25_model, corpus, metadatas, query, top_k=TOP_K)
     display_search_results(results, output_widget, directory=pdf_directory, top_k=TOP_K)
+
 
 # ==========================
 # GUI

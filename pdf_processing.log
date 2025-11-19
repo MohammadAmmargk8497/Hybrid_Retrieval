@@ -260,3 +260,71 @@
 2025-11-18 18:57:46,780:INFO:Loaded 59 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
 2025-11-18 18:57:46,780:INFO:Loaded 426 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
 2025-11-18 18:57:57,364:INFO:Opened PDF: /Users/ammar/Downloads/Cormen Introduction to Algorithms.pdf
+2025-11-18 19:18:32,572:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 19:18:32,854:INFO:Loaded 59 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 19:18:32,855:INFO:Loaded 426 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 19:19:40,157:INFO:Loaded 59 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 19:19:40,158:INFO:Loaded 426 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 19:33:25,541:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 19:33:25,690:INFO:Loaded 59 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 19:33:25,691:INFO:Loaded 426 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 19:33:39,396:INFO:Loaded 59 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 19:33:39,396:INFO:Loaded 426 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 20:06:39,703:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 20:06:40,003:INFO:Loaded 59 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 20:06:40,004:INFO:Loaded 426 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 20:12:40,477:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 20:12:40,642:INFO:Loaded 59 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 20:12:40,643:INFO:Loaded 426 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 20:12:40,643:INFO:Creating and saving BM25 model...
+2025-11-18 20:12:41,071:INFO:BM25 model created and saved.
+2025-11-18 20:12:53,280:INFO:Performing hybrid search...
+2025-11-18 20:12:53,280:INFO:Performing ChromaDB search for query: 'Reinforcement Learning'
+2025-11-18 20:12:53,628:INFO:ChromaDB search returned 5 results.
+2025-11-18 20:12:53,628:INFO:Performing BM25 search for query: 'Reinforcement Learning'
+2025-11-18 20:12:53,629:INFO:BM25 search returned 5 results.
+2025-11-18 20:12:53,630:INFO:Hybrid search returned 5 results.
+2025-11-18 20:17:10,517:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 20:17:10,667:INFO:Loaded 59 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 20:17:10,667:INFO:Loaded 426 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 20:17:19,194:INFO:Performing hybrid search...
+2025-11-18 20:17:19,194:INFO:Performing ChromaDB search for query: 'Reinforcement Learning'
+2025-11-18 20:17:19,483:INFO:ChromaDB search returned 5 results.
+2025-11-18 20:17:19,483:INFO:Performing BM25 search for query: 'Reinforcement Learning'
+2025-11-18 20:17:19,485:INFO:BM25 search returned 5 results.
+2025-11-18 20:17:19,486:INFO:Hybrid search returned 5 results.
+2025-11-18 20:17:19,740:INFO:Opened PDF: /Users/ammar/Downloads/SOP_UConn.pdf
+2025-11-18 20:17:19,819:INFO:Opened PDF: /Users/ammar/Downloads/Artificial Intelligence - A Modern Approach (3rd Edition).pdf
+2025-11-18 20:17:19,942:INFO:Opened PDF: /Users/ammar/Downloads/Reinforcement_Learning_Driven_Integrated_Detection_and_Mitigation_of_UAV_GPS_Spoofing_Attacks.pdf
+2025-11-18 20:17:20,039:INFO:Opened PDF: /Users/ammar/Downloads/Reinforcement-Learning-Driven_Integrated_Detection_and_Mitigation_of_UAV_GPS_Spoofing_Attacks.pdf
+2025-11-18 20:20:16,123:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 20:20:16,423:INFO:Loaded 59 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 20:20:16,423:INFO:Loaded 426 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 20:20:46,498:INFO:Performing hybrid search...
+2025-11-18 20:20:46,498:INFO:Performing ChromaDB search for query: 'reinforcement learning'
+2025-11-18 20:20:46,789:INFO:ChromaDB search returned 5 results.
+2025-11-18 20:20:46,789:INFO:Performing BM25 search for query: 'reinforcement learning'
+2025-11-18 20:20:46,790:INFO:BM25 search returned 5 results.
+2025-11-18 20:20:46,791:INFO:Hybrid search returned 5 results.
+2025-11-18 20:20:46,943:INFO:Opened PDF: /Users/ammar/Downloads/Reinforcement_Learning_Driven_Integrated_Detection_and_Mitigation_of_UAV_GPS_Spoofing_Attacks.pdf
+2025-11-18 20:20:47,029:INFO:Opened PDF: /Users/ammar/Downloads/Reinforcement-Learning-Driven_Integrated_Detection_and_Mitigation_of_UAV_GPS_Spoofing_Attacks.pdf
+2025-11-18 20:20:47,104:INFO:Opened PDF: /Users/ammar/Downloads/Artificial Intelligence - A Modern Approach (3rd Edition).pdf
+2025-11-18 20:20:47,173:INFO:Opened PDF: /Users/ammar/Downloads/SOP_UConn.pdf
+2025-11-18 20:35:42,764:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 20:35:43,068:INFO:Loaded 59 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 20:35:43,069:INFO:Loaded 426 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 20:35:43,655:INFO:Processed 2402.09353v6.pdf: 4 chunks created.
+2025-11-18 20:35:44,133:INFO:Added documents 1 to 4 out of 4.
+2025-11-18 20:35:44,133:INFO:Stored 4 new PDF chunks in Chroma DB.
+2025-11-18 20:35:44,133:INFO:Added 1 processed PDFs to /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 20:35:44,133:INFO:Creating and saving BM25 model...
+2025-11-18 20:35:44,566:INFO:BM25 model created and saved.
+2025-11-18 20:36:13,547:INFO:Performing hybrid search...
+2025-11-18 20:36:13,547:INFO:Performing ChromaDB search for query: 'Weight decomposed low rank adaptation'
+2025-11-18 20:36:13,705:INFO:ChromaDB search returned 5 results.
+2025-11-18 20:36:13,705:INFO:Performing BM25 search for query: 'Weight decomposed low rank adaptation'
+2025-11-18 20:36:13,707:INFO:BM25 search returned 5 results.
+2025-11-18 20:36:13,707:INFO:Hybrid search returned 5 results.
+2025-11-18 20:36:13,953:INFO:Opened PDF: /Users/ammar/Downloads/2402.09353v6.pdf
+2025-11-18 20:36:14,087:INFO:Opened PDF: /Users/ammar/Downloads/Artificial Intelligence - A Modern Approach (3rd Edition).pdf
+2025-11-18 20:36:14,180:INFO:Opened PDF: /Users/ammar/Downloads/7_Backprop_Export.pdf
