@@ -328,3 +328,33 @@
 2025-11-18 20:36:13,953:INFO:Opened PDF: /Users/ammar/Downloads/2402.09353v6.pdf
 2025-11-18 20:36:14,087:INFO:Opened PDF: /Users/ammar/Downloads/Artificial Intelligence - A Modern Approach (3rd Edition).pdf
 2025-11-18 20:36:14,180:INFO:Opened PDF: /Users/ammar/Downloads/7_Backprop_Export.pdf
+2025-11-18 21:41:17,409:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 21:41:17,719:INFO:Loaded 59 failed PDFs from /Users/ammar/Desktop/ProjectX/failed_pdfs.txt.
+2025-11-18 21:41:17,720:INFO:Loaded 427 processed PDFs from /Users/ammar/Desktop/ProjectX/processed_pdfs.txt.
+2025-11-18 21:41:30,639:INFO:Performing hybrid search...
+2025-11-18 21:41:30,640:INFO:Performing ChromaDB search for query: 'Reinforcement Learning'
+2025-11-18 21:41:31,050:INFO:ChromaDB search returned 5 results.
+2025-11-18 21:41:31,050:INFO:Performing BM25 search for query: 'Reinforcement Learning'
+2025-11-18 21:41:31,051:INFO:BM25 search returned 5 results.
+2025-11-18 21:41:31,052:INFO:Hybrid search returned 5 results.
+2025-11-18 21:41:31,331:INFO:Opened PDF: /Users/ammar/Downloads/SOP_UConn.pdf
+2025-11-18 21:41:31,421:INFO:Opened PDF: /Users/ammar/Downloads/Artificial Intelligence - A Modern Approach (3rd Edition).pdf
+2025-11-18 21:41:31,489:INFO:Opened PDF: /Users/ammar/Downloads/Reinforcement_Learning_Driven_Integrated_Detection_and_Mitigation_of_UAV_GPS_Spoofing_Attacks.pdf
+2025-11-18 21:41:31,572:INFO:Opened PDF: /Users/ammar/Downloads/Reinforcement-Learning-Driven_Integrated_Detection_and_Mitigation_of_UAV_GPS_Spoofing_Attacks.pdf
+2025-11-18 21:42:08,399:INFO:Performing hybrid search...
+2025-11-18 21:42:08,400:INFO:Performing ChromaDB search for query: 'Weight Decomposed Low rank adaptation'
+2025-11-18 21:42:08,574:INFO:ChromaDB search returned 5 results.
+2025-11-18 21:42:08,574:INFO:Performing BM25 search for query: 'Weight Decomposed Low rank adaptation'
+2025-11-18 21:42:08,576:INFO:BM25 search returned 5 results.
+2025-11-18 21:42:08,576:INFO:Hybrid search returned 5 results.
+2025-11-18 21:42:08,728:INFO:Opened PDF: /Users/ammar/Downloads/2402.09353v6.pdf
+2025-11-18 21:42:08,855:INFO:Opened PDF: /Users/ammar/Downloads/Artificial Intelligence - A Modern Approach (3rd Edition).pdf
+2025-11-18 21:42:08,970:INFO:Opened PDF: /Users/ammar/Downloads/7_Backprop_Export.pdf
+2025-11-19 16:02:29,991:INFO:Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-19 16:02:30,376:INFO:Performing hybrid search...
+2025-11-19 16:02:30,376:INFO:Performing ChromaDB search for query: 'Algorithms'
+2025-11-19 16:02:30,698:INFO:ChromaDB search returned 5 results.
+2025-11-19 16:02:30,699:INFO:Performing BM25 search for query: 'Algorithms'
+2025-11-19 16:02:30,700:INFO:BM25 search returned 5 results.
+2025-11-19 16:02:30,701:INFO:Hybrid search returned 5 results.
+2025-11-19 16:02:30,956:INFO:Opened PDF: /Users/ammar/Downloads/Cormen Introduction to Algorithms.pdf
