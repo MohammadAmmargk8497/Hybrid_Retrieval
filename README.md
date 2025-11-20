@@ -1,6 +1,6 @@
-# Local RAG PDF Search
+# Local Hybrid PDF Search
 
-This project is a local RAG (Retrieval-Augmented Generation) system for searching through a collection of PDF documents. It extracts text from PDFs, generates embeddings, and uses a hybrid search approach to find relevant documents based on a user's query.
+This project is a local hybrid PDF retrieval system for searching through a collection of PDF documents. It extracts text from PDFs, generates embeddings, and uses a hybrid search approach to find relevant documents based on a user's query.
 ## Motivation
 For the past couple of months I have been reading and downloading extensive research papers in Artificial Intelligence. With more than 20-30 papers each week being published on Arxiv it is becoming ever more complex to track and read them. So whenever I see a new **Banger** paper I go ahead and download it to read it later. But the problem is I am a messy person and all those papers with weird file names keep stacking in my downloads folder. Searching the paper in the downloads becomes a blind search task with very bad time complexity(yeah yeah, I do use Hueristic search but still). So I developed this dope method to just search up using Vector Search coupled with BM25. Saves me a ton of time🤓.
 ## Features
