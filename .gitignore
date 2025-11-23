@@ -28,3 +28,4 @@ chroma.sqlite3
 *.pyc
 *.pyo
 *.pyd
+idea.md
