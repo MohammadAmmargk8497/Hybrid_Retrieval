@@ -1,101 +1,107 @@
-import numpy as np
-from rank_bm25 import BM25Okapi
-import chromadb
+"""Hybrid retrieval: dense (Chroma) + sparse (BM25), fused with Reciprocal Rank Fusion.
+
+RRF reference: Cormack, Clarke & Buettcher, *Reciprocal Rank Fusion outperforms
+Condorcet and individual Rank Learning Methods* (SIGIR 2009).
+
+    score(d) = Σ_r  1 / (k + rank_r(d))
+
+where `rank_r(d)` is d's 1-indexed position in ranker r's result list, and k is
+a small constant (60 in the original paper) that dampens the influence of very
+top-ranked items so multiple rankers can vote.
+"""
+
+from __future__ import annotations
+
 import logging
+from typing import Iterable, Sequence
+
+import numpy as np
+
+logger = logging.getLogger(__name__)
+
 
 def search_in_chroma(collection, query: str, top_k: int = 5):
-    """
-    Perform a search in ChromaDB and return top_k results.
-    """
-    logging.info(f"Performing ChromaDB search for query: '{query}'")
-    results = collection.query(
+    """Run a Chroma vector search; returns Chroma's raw response dict."""
+    logger.info("Chroma search: %r (top_k=%d)", query, top_k)
+    return collection.query(
         query_texts=[query],
         n_results=top_k,
-        include=['documents', 'metadatas', 'distances']
+        include=["documents", "metadatas", "distances"],
     )
-    logging.info(f"ChromaDB search returned {len(results['documents'][0])} results.")
-    return results
 
-def bm25_search(bm25_model, corpus, query, top_k=5):
-    """
-    Performs a BM25 search on the corpus using a pre-built model.
-    """
-    logging.info(f"Performing BM25 search for query: '{query}'")
+
+def bm25_search(bm25_model, corpus, query: str, top_k: int = 5):
+    """Run BM25; returns a list of {corpus_id, score} sorted by score desc."""
+    logger.info("BM25 search: %r (top_k=%d)", query, top_k)
     tokenized_query = query.split(" ")
     doc_scores = bm25_model.get_scores(tokenized_query)
-    
-    # Get the top_k results
     top_n = np.argsort(doc_scores)[::-1][:top_k]
-    
+    return [{"corpus_id": int(i), "score": float(doc_scores[i])} for i in top_n]
+
+
+def reciprocal_rank_fusion(
+    ranked_lists: Iterable[Sequence[int]], k: int = 60
+) -> list[tuple[int, float]]:
+    """Fuse multiple ranked lists of doc-ids with RRF.
+
+    Each input is a sequence of corpus_ids ordered best-first. Returns
+    [(corpus_id, fused_score), ...] sorted by fused_score desc.
+    """
+    fused: dict[int, float] = {}
+    for ranking in ranked_lists:
+        for rank, doc_id in enumerate(ranking):  # rank is 0-indexed
+            fused[doc_id] = fused.get(doc_id, 0.0) + 1.0 / (k + rank + 1)
+    return sorted(fused.items(), key=lambda kv: kv[1], reverse=True)
+
+
+def hybrid_search(
+    collection,
+    bm25_model,
+    corpus: Sequence[str],
+    metadatas: Sequence[dict],
+    query: str,
+    top_k: int = 5,
+    candidate_k: int | None = None,
+    rrf_k: int = 60,
+):
+    """Run dense + sparse retrieval and fuse with RRF.
+
+    `candidate_k` is the per-ranker depth fed into RRF (defaults to 4×top_k).
+    Pulling deeper candidates is cheap and meaningfully improves fusion quality.
+    """
+    candidate_k = candidate_k or max(top_k * 4, 20)
+    logger.info("Hybrid search (top_k=%d, candidate_k=%d)", top_k, candidate_k)
+
+    # --- Dense: map Chroma's returned documents back to corpus indices.
+    chroma_results = search_in_chroma(collection, query, top_k=candidate_k)
+    chroma_docs = chroma_results["documents"][0]
+
+    # Build doc->id map once. (Cheap relative to a query, and avoids the
+    # previous O(N) corpus.index() call per Chroma hit.)
+    doc_to_id: dict[str, int] = {}
+    for i, doc in enumerate(corpus):
+        doc_to_id.setdefault(doc, i)
+
+    chroma_ranking = [doc_to_id[d] for d in chroma_docs if d in doc_to_id]
+
+    # --- Sparse.
+    bm25_results = bm25_search(bm25_model, corpus, query, top_k=candidate_k)
+    bm25_ranking = [r["corpus_id"] for r in bm25_results]
+
+    # --- Fuse on rank position (the bug-fix: previously BM25's raw score was
+    # plugged into 1/(k+score), severely under-weighting BM25 evidence).
+    fused = reciprocal_rank_fusion([chroma_ranking, bm25_ranking], k=rrf_k)
+
     results = []
-    for i in top_n:
-        results.append({
-            'corpus_id': i,
-            'score': doc_scores[i]
-        })
-    logging.info(f"BM25 search returned {len(results)} results.")
+    for doc_id, score in fused[:top_k]:
+        meta = metadatas[doc_id] if doc_id < len(metadatas) else {"source": "Unknown"}
+        results.append(
+            {
+                "document": corpus[doc_id],
+                "metadata": {"source": meta.get("source", "Unknown")},
+                "score": score,
+            }
+        )
+
+    logger.info("Hybrid search returned %d results.", len(results))
     return results
-
-def reciprocal_rank_fusion(results, k=60):
-    """
-    Combines search results using Reciprocal Rank Fusion.
-    """
-    fused_scores = {}
-    for doc_id, score in results:
-        if doc_id not in fused_scores:
-            fused_scores[doc_id] = 0
-        fused_scores[doc_id] += 1 / (k + score)
-    
-    reranked_results = sorted(fused_scores.items(), key=lambda x: x[1], reverse=True)
-    return reranked_results
-
-def hybrid_search(collection, bm25_model, corpus, metadatas, query, top_k=5):
-    """
-    Performs a hybrid search using BM25 and ChromaDB, combining the results.
-    """
-    logging.info("Performing hybrid search...")
-    
-    # Get results from ChromaDB
-    chroma_results = search_in_chroma(collection, query, top_k=top_k)
-    
-    # Get results from BM25
-    bm25_results = bm25_search(bm25_model, corpus, query, top_k=top_k)
-    
-    # Combine the results using RRF
-    
-    # For ChromaDB, the 'documents' list contains the results for each query.
-    # Since we have one query, we take the first element.
-    chroma_docs = chroma_results['documents'][0]
-    
-    # Create a mapping from corpus index to document metadata
-    corpus_map = {i: {'source': meta['source']} for i, meta in enumerate(metadatas)}
-
-    # Prepare results for RRF
-    rrf_results = []
-    
-    # Add Chroma results
-    for i, doc in enumerate(chroma_docs):
-        # Find the corpus index of the document
-        try:
-            corpus_id = list(corpus).index(doc)
-            rrf_results.append((corpus_id, i)) # Using rank as score
-        except ValueError:
-            continue
-
-    # Add BM25 results
-    for result in bm25_results:
-        rrf_results.append((result['corpus_id'], result['score']))
-
-    fused_results = reciprocal_rank_fusion(rrf_results)
-    
-    # Get the top_k results
-    top_results = []
-    for doc_id, score in fused_results[:top_k]:
-        top_results.append({
-            'document': corpus[doc_id],
-            'metadata': corpus_map.get(doc_id, {'source': 'Unknown'}),
-            'score': score
-        })
-        
-    logging.info(f"Hybrid search returned {len(top_results)} results.")
-    return top_results
