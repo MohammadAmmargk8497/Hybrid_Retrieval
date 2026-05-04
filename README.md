@@ -46,6 +46,12 @@ For the past couple of months I have been reading and downloading extensive rese
     poetry install
     ```
 
+4.  **Start GROBID** (required for PDF extraction — see `docs/changes/0009...`):
+    ```bash
+    docker compose up -d
+    ```
+    GROBID listens on `http://localhost:8070`. Override via `HR_GROBID_URL`.
+
 ## Configuration
 
 The application can be configured by editing the `src/config.py` file.

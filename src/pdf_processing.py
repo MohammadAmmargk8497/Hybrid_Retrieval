@@ -1,21 +1,45 @@
+import logging
 import os
 import re
-import logging
-from langchain_community.document_loaders import PyPDFLoader
+import unicodedata
+from pathlib import Path
+
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from src.config import CHUNK_SIZE, CHUNK_OVERLAP
+
+from src.config import CHUNK_OVERLAP, CHUNK_SIZE, settings
+from src.grobid import GrobidClient, GrobidUnavailable, parse_tei_to_chunks
+from src.models import Chunk
 
 # ==========================
 # Helper Functions
 # ==========================
 
+# Control chars except \t \n \r — these survive PDF extraction but break
+# tokenizers and downstream string handling.
+_CONTROL_CHARS = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
+_WHITESPACE = re.compile(r"\s+")
+
+
 def clean_text(text: str) -> str:
+    """Normalize PDF-extracted text while preserving meaningful unicode.
+
+    Previous implementation stripped all non-ASCII via ``[^\\x00-\\x7F]+``,
+    which deleted Greek letters, math symbols, accented author names, and
+    in-line equations — exactly the tokens that distinguish AI papers.
+
+    What we do now:
+      * NFKC-normalize so PDF ligatures (``ﬁ``, ``ﬀ``, ``ﬂ`` …) and
+        compatibility forms collapse to their canonical equivalents
+        (``fi``, ``ff``, ``fl``).
+      * Drop only ASCII control characters (PDFs occasionally embed these).
+      * Collapse runs of whitespace to a single space.
     """
-    Remove non-ASCII characters and extra whitespace from extracted text.
-    """
-    cleaned_text = re.sub(r'[^\x00-\x7F]+', ' ', text)
-    cleaned_text = re.sub(r'\s+', ' ', cleaned_text).strip()
-    return cleaned_text
+    if not text:
+        return ""
+    text = unicodedata.normalize("NFKC", text)
+    text = _CONTROL_CHARS.sub(" ", text)
+    text = _WHITESPACE.sub(" ", text).strip()
+    return text
 
 def load_pdfs_from_directory(directory: str):
     """
@@ -29,7 +53,7 @@ def load_failed_pdfs(filepath: str) -> set:
     """
     failed_pdfs = set()
     if os.path.exists(filepath):
-        with open(filepath, 'r') as f:
+        with open(filepath) as f:
             for line in f:
                 pdf = line.strip()
                 if pdf:
@@ -56,7 +80,7 @@ def load_processed_pdfs(filepath: str) -> set:
     """
     processed_pdfs = set()
     if os.path.exists(filepath):
-        with open(filepath, 'r') as f:
+        with open(filepath) as f:
             for line in f:
                 pdf = line.strip()
                 if pdf:
@@ -77,50 +101,74 @@ def save_processed_pdfs(processed_pdfs: list, filepath: str):
             f.write(f"{pdf}\n")
     logging.info(f"Added {len(processed_pdfs)} processed PDFs to {filepath}.")
 
-def extract_text_from_pdfs(directory: str, filenames: list, chunk_size:int=CHUNK_SIZE, chunk_overlap:int=CHUNK_OVERLAP):
-    """
-    Extract, clean, and chunk text from the specified PDFs. Uses LangChain to load and split PDFs.
-    """
-    text_data = []
-    failed_pdfs = []
-    success_pdfs = []
-
-    text_splitter = RecursiveCharacterTextSplitter(
+def _build_splitter(chunk_size: int, chunk_overlap: int) -> RecursiveCharacterTextSplitter:
+    return RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap,
-        separators=["\n\n", "\n", " ", ""]
+        separators=["\n\n", "\n", ". ", "? ", "! ", "; ", " ", ""],
     )
 
+
+def extract_text_from_pdfs(
+    directory: str,
+    filenames: list,
+    chunk_size: int = CHUNK_SIZE,
+    chunk_overlap: int = CHUNK_OVERLAP,
+    grobid: GrobidClient | None = None,
+) -> tuple[list[Chunk], list[str], list[str]]:
+    """Extract, clean, and chunk text from PDFs via GROBID.
+
+    Returns ``(chunks, failed_filenames, ok_filenames)``.
+
+    **Hard fails** with ``GrobidUnavailable`` if the service isn't up. The
+    decision (per project direction) is that a half-degraded index is
+    worse than a clear "GROBID isn't running" error: extraction quality
+    is the input that bounds retrieval quality, and we'd rather you fix
+    the pipeline than ship corrupted recall.
+
+    The ``grobid`` argument is mainly for tests — production calls pass
+    ``None`` and we construct a client from ``settings.grobid_url``.
+    """
+    if grobid is None:
+        grobid = GrobidClient(settings.grobid_url, timeout=settings.grobid_timeout_s)
+    if not grobid.is_alive():
+        raise GrobidUnavailable(
+            f"GROBID is not reachable at {grobid.base_url}. "
+            "Start it with: `docker compose up -d` (see docker-compose.yml)."
+        )
+
+    splitter = _build_splitter(chunk_size, chunk_overlap)
+
+    all_chunks: list[Chunk] = []
+    failed_pdfs: list[str] = []
+    success_pdfs: list[str] = []
+
     for filename in filenames:
-        filepath = os.path.join(directory, filename)
-        loader = PyPDFLoader(filepath)
+        filepath = Path(directory) / filename
         try:
-            documents = loader.load()
-            if not documents:
-                logging.warning(f"No documents found in {filename}. Skipping.")
+            tei_xml = grobid.process_fulltext(filepath)
+            chunks = parse_tei_to_chunks(
+                tei_xml,
+                source=filename,
+                doc_id=filepath.stem,
+                text_splitter=splitter,
+                clean_text=clean_text,
+            )
+            if not chunks:
+                logging.warning("GROBID parsed no chunks from %s.", filename)
                 failed_pdfs.append(filename)
                 continue
-
-            full_text = " ".join([doc.page_content for doc in documents])
-            cleaned_text = clean_text(full_text)
-            
-            if not cleaned_text:
-                logging.warning(f"No text found in {filename}. Skipping.")
-                failed_pdfs.append(filename)
-                continue
-
-            chunks = text_splitter.split_text(cleaned_text)
-            for idx, chunk in enumerate(chunks):
-                chunk_id = f"{filename}_chunk_{idx+1}"
-                metadata = {"source": filename}
-                text_data.append((chunk_id, chunk, metadata))
-            
-            logging.info(f"Processed {filename}: {len(chunks)} chunks created.")
+            all_chunks.extend(chunks)
             success_pdfs.append(filename)
+            logging.info("Processed %s: %d chunks.", filename, len(chunks))
 
+        except GrobidUnavailable:
+            # Service died mid-batch — propagate up, don't silently mark
+            # this PDF as failed and keep going.
+            raise
         except Exception as e:
-            logging.error(f"Error processing {filename}: {e}. Skipping.")
+            logging.error("Error processing %s: %s. Skipping.", filename, e)
             failed_pdfs.append(filename)
             continue
 
-    return text_data, failed_pdfs, success_pdfs
+    return all_chunks, failed_pdfs, success_pdfs

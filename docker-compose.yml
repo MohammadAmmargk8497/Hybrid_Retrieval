@@ -1,0 +1,40 @@
+services:
+  qdrant:
+    # Production-grade vector store. Native gRPC + REST; persistent
+    # storage in a named volume so wiping the host doesn't kill the index.
+    image: qdrant/qdrant:v1.12.4
+    container_name: hybrid_retrieval_qdrant
+    ports:
+      - "6333:6333"  # REST + Web UI
+      - "6334:6334"  # gRPC (used by qdrant-client when prefer_grpc=True)
+    volumes:
+      - qdrant_data:/qdrant/storage
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c '</dev/tcp/localhost/6333'"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  grobid:
+    # Lightweight image; the `-full` variant adds DL header parsing at the
+    # cost of ~5 GB extra. We don't need it yet — flip the tag if we ever
+    # want stronger author/affiliation extraction for the KG layer.
+    image: lfoppiano/grobid:0.8.1
+    container_name: hybrid_retrieval_grobid
+    ports:
+      - "8070:8070"
+    init: true
+    ulimits:
+      core: 0
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8070/api/isalive"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+volumes:
+  qdrant_data:

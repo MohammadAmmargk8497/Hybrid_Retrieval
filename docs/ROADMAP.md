@@ -22,17 +22,20 @@ Production-grade rebuild of the local hybrid PDF search system. Will also serve 
 Fix correctness/quality bugs in the existing code before any stack swap. No new deps.
 
 - [x] 0001 — Fix RRF fusion bug in `src/search.py`
-- [ ] 0002 — Restrict source folder to `.pdf` only (already done; verify) and stop stripping non-ASCII in `clean_text` (loses math/Greek)
-- [ ] 0003 — Reduce `CHUNK_SIZE` to a sane default (~1200 chars / 250 tokens) and tighten splitter
-- [ ] 0004 — Remove dead `src/embedding.py` (unused; Chroma uses its own embedder)
-- [ ] 0005 — Parameterize config via env / CLI (drop hard-coded `/Users/ammar/...` paths)
-- [ ] 0006 — Replace `rank_bm25` + pickle with `bm25s` (incremental, ~100× faster)
-- [ ] 0007 — Add `ruff`, `mypy`, `pytest`, basic CI, `Makefile`
+- [x] 0002 — Preserve unicode in `clean_text` (NFKC + control-char strip)
+- [x] 0003 — Reduce `CHUNK_SIZE` to 1200, tighten splitter
+- [x] 0004 — Removed dead `src/embedding.py`
+- [x] 0005 — Env / CLI config + `reindex` command
+- [x] 0006 — Replaced `rank_bm25` + pickle with `bm25s`; hybrid_search now id-based
+- [x] 0007 — `ruff`, `mypy`, `pytest`, `Makefile`; 18 tests landed
+
+Stage 1 complete. Next: **Stage 2** (GROBID + Nomic Embed v1.5 + Qdrant + reranker).
 
 ### Stage 2 — Extraction + embeddings overhaul
-- GROBID service (Docker) for academic PDFs; capture page numbers per chunk so we can deep-link.
-- Nomic Embed v1.5 via sentence-transformers (or `nomic` SDK). Persist 768d.
-- Optional reranker over top-50 fused.
+- [x] 0008 — Pydantic data models (`Chunk` / `SearchHit` / `SearchResponse`) + per-page chunking
+- [x] 0009 — GROBID extractor (local Docker), section as soft metadata hint, hard-fail when down
+- [x] 0010 — Qdrant + Nomic Embed v1.5 + LRU query cache (combined storage swap)
+- [ ] 0011 — Cross-encoder reranker (optional, gated by env var)
 
 ### Stage 3 — Service + UI
 - FastAPI app: `/index`, `/search`, `/document/{id}/page/{n}` endpoints.
